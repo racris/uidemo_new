@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../plugin/elementui/index.css">
+</head>
+<body>
+<!--<script src="../plugin/jquery-2.1.4.min.js"></script>-->
+<div id="checkTest">
+    <el-form :model="form" label-width="80px">
+        <el-row v-show="visible1">
+            <el-col :span="24">
+                <el-form-item label="活动名称">
+                    <el-input v-model="form.name"></el-input>
+                </el-form-item>
+            </el-col>
+        </el-row>
+        <el-row v-show="visible2">
+            <el-col :span="24">
+                <el-form-item label="活动内容">
+                    <el-input v-model="form.content"></el-input>
+                </el-form-item>
+            </el-col>
+        </el-row>
+        <el-row>
+            <el-col>
+                <el-checkbox-group v-model="checkList" @change="change">
+                    <el-checkbox label="test1" disabled></el-checkbox>
+                    <el-checkbox label="test2"></el-checkbox>
+                    <el-checkbox label="test3"></el-checkbox>
+                </el-checkbox-group>
+            </el-col>
+        </el-row>
+    </el-form>
+</div>
+
+</body>
+<script src="../plugin/jquery.js"></script>
+<script src="../plugin/vue.js"></script>
+<script src="../plugin/elementui/index.js"></script>
+
+<script>
+    new Vue({
+        el: '#checkTest',
+        data: function () {
+            return {
+                visible1: false,
+                visible2: false,
+                form: {
+                    name: "",
+                    content: ""
+                },
+                checkList: ['test1']
+            }
+        },
+        methods: {
+            change: function () {
+                debugger
+                // var flag1 = false
+                // var flag2 = false
+                var that = this
+                this.visible1 = false
+                this.visible2 = false
+                var checkList = this.checkList
+                checkList.map(function (item) {
+                    if (item == "test2") {
+                        that.visible1 = true
+                    }
+                    if (item == "test3") {
+                        that.visible2 = true
+                    }
+                })
+                // checkList.map(function (item) {
+                //     if (item == "test2") {
+                //         flag1 = true
+                //     }
+                //     if (item == "test3") {
+                //         flag2 = true
+                //     }
+                // })
+                // this.visible1 = flag1 ?true:false
+                // this.visible2 = flag2 ?true:false
+            }
+        }
+    })
+</script>
+</html>

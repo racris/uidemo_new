@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<template>
+    <div>
+        <el-checkbox-group v-model="test" @change="getValue()">
+            <el-checkbox  v-for="(item,i) in items" :key="i" :label="item.content" :disabled="item.disabled" :checked="item.checked"></el-checkbox>
+        </el-checkbox-group>
+    </div>
+</template>
+<!--<script>-->
+<!--    export default {-->
+<!--        name: "HelloWorld",-->
+<!--        data() {-->
+<!--            return {-->
+<!--                test:[], // 默认选项，要在el-checkbox-group里绑定一个空数组-->
+<!--                items:[-->
+<!--                    {id:0,content:"选项一",disabled:false,checked:true},-->
+<!--                    {id:1,content:"选项二",disabled:true,checked:false},-->
+<!--                    {id:2,content:"选项三",disabled:false,checked:false},-->
+<!--                ]-->
+<!--            };-->
+<!--        },-->
+<!--        methods: {-->
+<!--            getValue(){-->
+<!--                console.log(this.test)-->
+<!--            }-->
+<!--        },-->
+<!--    };-->
+<!--</script>-->
+<style lang="css" scoped>
+</style>
+</body>
+</html>
